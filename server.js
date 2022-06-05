@@ -8,6 +8,14 @@ const bootcamps = require('./routes/bootcamps')
 dotenv.config({path: './config/config.env'})
 
 const app = express()
+const logger = (req,res,next) => {
+    req.hello = "Hello World"
+    console.log(`${req.method} ${req.protocol}://${req.get('host')}${req.orginalUrl}`)
+    next()
+}
+
+
+app.use(logger)
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps)
