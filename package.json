@@ -19,7 +19,8 @@
   "homepage": "https://github.com/JoyKevin1/Starting-Nodejs#readme",
   "dependencies": {
     "dotenv": "^16.0.1",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
