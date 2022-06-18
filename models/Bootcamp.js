@@ -105,9 +105,9 @@ const BootCampSchema = new mongoose.Schema(
 
     //Create bootcamp slug from the name
 
-    BootCampSchema.pre('save', function () {
-      console.log('Slugify ran', this.name)
+    BootCampSchema.pre('save', function(next) {
+      this.slug = slugify(this.name, { lower: true})
       next()
     })
 
-module.exports = mongoose.model('Bootcamp', BootCampSchema)
+module.exports = mongoose.model('bootcamp', BootCampSchema)

@@ -42,10 +42,15 @@ exports.getBootcamp = asyncHandler(async(req, res, next) => {
 
 exports.createBootcamp = asyncHandler(async (req, res, next) => {
         const bootcamp = Bootcamp(req.body)
-        const saved = await bootcamp.save()
-        res.status(201).json({
+        await bootcamp.save()
+        // if(!bootcamp) {
+        //     next(
+        //     new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 400)
+        //     )
+        // }
+        return res.status(201).json({
             success: true,
-            data: saved
+            data: bootcamp
         })
     })
 
@@ -90,3 +95,24 @@ exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
            data: {}
        })
    } )
+
+// Uploading bootcamp photo
+// PUT/api/v1/bootcamps/:id/photo
+//Private
+
+   exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
+    const bootcamp = await Bootcamp.findById(req.params.id)
+
+    if(!bootcamp) {
+      return next (
+           new Response(`Bootcamp not found with id of ${req.params.id}`, 404)
+       )
+    }
+ 
+
+    if(!req.files) {
+        return next (
+            new Response(`Please upload a file`, 404)
+        )
+    }
+} )
