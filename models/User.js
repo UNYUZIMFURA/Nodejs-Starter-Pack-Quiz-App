@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 const UserSchema = new mongoose.Schema({
@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please add a password'],
         minlength: 6,
-        select: false,
+        // select: false,
     },
 resetPasswordToken: String,
 resetPasswordExpire: Date,
@@ -38,10 +38,13 @@ createdAt: {
 
 
 // Encrypt password using bcrypt 
-UserSchema.pre('save', async function(next) {
-    const salt = await bcrypt.genSalt(10)
-    this.password = await bcrypt.hash(this.password, salt)
-})
+// UserSchema.pre('save', async function(next) {
+//     // const salt = await bcrypt.genSalt(10)
+//     // this.password = await bcrypt.hash(this.password, salt)
+//     await bcrypt.hash(this.password,10,(err,hash)=>{
+//         err?console.log(err):this.password=hash
+//     })
+// })
 
 // Sign a JWT and return 
 
@@ -51,4 +54,11 @@ UserSchema.methods.getSignedToken = function() {
     })
 }
 
-module.exports = mongoose.model('User', UserSchema)
+// Match user entered password to hashed password in database
+
+// UserSchema.methods.matchPassword = async function(enteredPassword) {
+//     return await bcrypt.compare(enteredPassword, this.password)
+// }
+
+
+module.exports = mongoose.model('Users', UserSchema)

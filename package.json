@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/JoyKevin1/Starting-Nodejs#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^5.0.1",
     "colors": "^1.4.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
