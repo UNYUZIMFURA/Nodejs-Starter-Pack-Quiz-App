@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const connectDB = require('./config/db')
 const colors = require('colors')
 const errorHandler = require('./middleware/error')
+const cookieParser = require('cookie-parser')
 const fileupload = require('express-fileupload')
 //Load env vars
 
@@ -23,6 +24,8 @@ const auth = require('./routes/auth')
 app.use(express.json())
 
 app.use(logger)
+
+app.use(cookieParser())
 
 // Dev logging middleware
 
@@ -53,3 +56,4 @@ process.on('unhandledRejection', (err, promise) => {
 
     server.close(() => process.exit(1))
 })
+

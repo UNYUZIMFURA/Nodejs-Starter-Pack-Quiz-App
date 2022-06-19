@@ -17,13 +17,7 @@ exports.register = (req, res) => {
             role: role
          })
          user.save()
-        const token =  user.getSignedToken()
-         res.status(201).json({
-            success:true,
-            message:"user created successfully",
-            token
-         })
-   
+         sendTokenResponse(user, 200, res)
    })
    //Create user
    // Create token
@@ -58,11 +52,23 @@ exports.login = async (req, res) => {
           })
       }
 
-      const token = user.getSignedToken()
-      res.status(200).json({
-          success:true,
-          message:"user logged in successfully!",
-          user,
-          token
-      })
+      // Call the token function
+      sendTokenResponse(user, 200, res)
+}
+
+// Get token from model, create cookie and send response
+
+const sendTokenResponse = (user, statusCode, res) => {
+    const token = user.getSignedToken()
+    const options = {
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 3600 * 1000),
+        httpOnly: true
+    }
+    res
+    .status(statusCode)
+    .cookie('token', token, options)
+    .json({
+        success: true,
+        token
+    })
 }
