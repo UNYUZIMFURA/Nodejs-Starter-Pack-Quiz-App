@@ -1,5 +1,6 @@
 const express = require('express')
 const {
+    handleData,
     loadSignup,
     createUser,
 } = require('../controllers/users')
@@ -13,6 +14,9 @@ router
 router
     .route('/signup')
     .get(createUser)
-    .post(createUser)
+
+router
+.route('/data')
+.post(handleData)
 
 module.exports = router

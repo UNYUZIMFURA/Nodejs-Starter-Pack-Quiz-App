@@ -6,7 +6,11 @@ exports.loadSignup = (req, res) => {
    res.sendFile(pathName)
 }
 
-exports.createUser = async (req, res) => {
+exports.createUser = (req, res) => {
    res.sendFile(pathName)
+   // console.log(req.body)
+}
+
+exports.handleData = (req,res) => {
    console.log(req.body)
 }
