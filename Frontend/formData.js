@@ -8,21 +8,25 @@ function getCurrentData() {
     let password = passwordTag.value
 
     let formData = {
-        name, 
+        name,
         email,
         password
     }
+    // Asynchronous way to fetch data
 
-    console.log(formData)
     async function fetchData() {
-    fetch('http://localhost:8080/signup', {
-        headers: {
-         'Content-Type':'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify(formData),
+        fetch('http://localhost:8080/signup', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify(formData),
         })
-  }
-  fetchData()
+    }
+
+    // Call the fetch Data function after collecting form data
+
+    fetchData()
+
 }
 

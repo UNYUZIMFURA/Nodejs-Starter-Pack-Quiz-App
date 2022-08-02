@@ -113,7 +113,7 @@ function nextQuest() {
         answersDiv.appendChild(butto)
         clickButton()
 
-// What to do onclicking the button
+        // What to do onclicking the button
 
         function clickButton() {
             butto.addEventListener('click', (e) => {
