@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Javascript</title>
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script src="script.js" defer></script>
+
+<body>
+
+    <div class="main-container">
+        <div class="questions-div" id="questions-div">
+            <div class="time" id="time">
+                <p id="p">Quiz Time!</p>
+                <div class="time-counter" id="time-counter">
+                    <h4 class="left">Time left</h4><button class="time-btn" id="time-btn"></button>
+                </div>
+            </div>
+        </div>
+        <div class="answers-div" id="answers-div">
+            <div class="instructions" id="instructions">
+                <p class="title"> Simple Instruction to keep in mind</p>
+                <div class="steps">
+                    <p>1. You have 20 seconds on each question</p>
+                </div>
+                <p class="luck">Good Luck!</p>
+            </div>
+        </div>
+
+        <div class="buttons-div" id="buttons-div">
+            <button class="start" onclick="startGame()" id="start">Start Quiz</button>
+            <button class="next" onclick="nextQuest()" id="next">Next</button>
+        </div>
+    </div>
+    <div class="message">
+        <p id="error"></p>
+    </div>
+</body>
+
+</html>

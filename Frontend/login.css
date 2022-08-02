@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    height: 50vh;
+    width: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input {
+    width: 80%;
+    height: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.123);
+    border-radius: 2rem;
+    text-indent: 1.5rem;
+    outline: none;
+}
+
+button {
+    width: 60%;
+    height: 2.5rem;
+    cursor: pointer;
+    background-color: rgb(25, 125, 226);
+    border: 1px solid rgb(25, 125, 226);
+    color: #fff;
+    border-radius: 2rem;
+}

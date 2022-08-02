@@ -1,59 +1,29 @@
 const express = require('express')
 const dotenv = require('dotenv')
-const logger = require('./middleware/logger')
-const morgan = require('morgan')
 const connectDB = require('./config/db')
 const colors = require('colors')
-const errorHandler = require('./middleware/error')
-const cookieParser = require('cookie-parser')
-const fileupload = require('express-fileupload')
-//Load env vars
-
-dotenv.config({path: './config/config.env'})
+const path = require('path')
+const users = require('./routes/users')
 
 
-// Connect to database
+dotenv.config({ path: './config/config.env' })
 
 connectDB()
-// Route files
-const bootcamps = require('./routes/bootcamps')
+
+
+
 const app = express()
-const auth = require('./routes/auth')
+app.use(express.static('Frontend'))
 
-// Body parser
 app.use(express.json())
+const PORT = process.env.PORT
 
-app.use(logger)
-
-app.use(cookieParser())
-
-// Dev logging middleware
-
-if(process.env.NODE_ENV === 'development') {
-app.use(morgan('dev'))
-}
-
-// File uploading
-
-app.use(fileupload())
-
-// Mount routers
-app.use('/api/v1/bootcamps', bootcamps)
-app.use('/api/v1/auth', auth)
-app.use(errorHandler)
-
-
-const PORT = process.env.PORT || 5000
-const server = app.listen(PORT, () =>{
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)
+app.use('/', users)
+const server = app.listen(PORT, () => {
+    console.log(`Server Running on port ${PORT}`.cyan.bold)
 })
 
-//Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
-    console.log(`Error: ${err.message}`.red)
-
-    //close server & exit process
-
+    console.log(`Error: ${err.message}`.red.bold)
     server.close(() => process.exit(1))
 })
-

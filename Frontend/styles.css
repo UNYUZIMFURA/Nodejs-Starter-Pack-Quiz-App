@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxygen'
+}
+
+
+body {
+    background-color: rgb(13, 68, 124);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url();
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+    border-radius: 3px;
+    height: 50%;
+    width: 35%;
+}
+
+.time {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 87%;
+}
+
+.time-counter {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    height: 2rem;
+}
+
+.time-btn {
+    width: 2rem;
+    height: 1.5rem;
+    background-color: aliceblue;
+    border: 1px solid aliceblue;
+    border-radius: 1.5px;
+}
+
+.left {
+    font-size: 0.8rem;
+}
+
+.start {
+    height: 3rem;
+    width: 8rem;
+    background-color: rgb(25, 125, 226);
+    border: 1px solid rgb(25, 125, 226);
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    ;
+}
+
+.luck {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50%;
+}
+
+
+.steps {
+    height: 100%;
+}
+
+.steps p {
+    margin-top: 1rem;
+}
+
+.answers-div {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 70%;
+    border-radius: 3px;
+
+}
+
+.questions-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 80%;
+    border-radius: 3px;
+    font-size: 1.3rem;
+}
+
+.next {
+    display: none;
+    height: 3rem;
+    width: 8rem;
+    background-color: rgb(25, 125, 226);
+    border: 1px solid rgb(25, 125, 226);
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.message {
+    margin-top: 3rem;
+    color: rgb(217, 209, 209);
+    font-weight: bold;
+}
+
+.selected {
+    height: 3rem;
+    width: 8rem;
+    background-color: rgb(9, 122, 29);
+    border: 1px solid rgb(9, 122, 29);
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
