@@ -8,19 +8,13 @@ function getCurrentData(event) {
     let email = emailTag.value
     let password = passwordTag.value
 
-    // let formData = {
-    //     name,
-    //     email,
-    //     password
-    // }
-
     let formData = {
-        "name": "kevin",
-        "email": "me@mgia.com",
-        "password": "password"
+        name,
+        email,
+        password
     }
-    console.log(formData)
 
+    console.log(formData)
   
     // Asynchronous way to fetch data
 
@@ -35,7 +29,6 @@ function getCurrentData(event) {
     }
 
     // Call the fetch Data function after collecting form data
-
     fetchData()
 }    
 

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -20,8 +21,8 @@ const UserSchema = new mongoose.Schema({
 
     password: {
         type: String,
-        maxlength: [20, 'Password must be a maximum of 20 characters'],
-        minlength: [3, 'Password must be a minimum of 3 characters'],
         required: [true, 'Please add a password'],
     }
 })
+
+module.exports = mongoose.model('user', UserSchema)
