@@ -10,7 +10,3 @@ exports.createUser = async (req, res) => {
    res.sendFile(pathName)
    console.log(req.body)
 }
-
-exports.updateUser = (req, res) => {
-   res.redirect('/signup')
-}
