@@ -13,8 +13,8 @@ exports.createUser = (req, res) => {
   res.sendFile(pathName)
 }
 
-exports.getQuiz = (req,res) => {
-res.sendFile(quizPath)
+exports.getQuiz = (req, res) => {
+  res.sendFile(quizPath)
 }
 
 exports.handleData = async (req, res) => {
@@ -58,7 +58,6 @@ exports.loginUser = async (req, res) => {
   }
 
   sendTokenResponse(user, 200, res)
-  
 }
 
 
@@ -73,7 +72,10 @@ const sendTokenResponse = (user, statusCode, res) => {
   res
     .status(statusCode)
     .cookie('token', token, options)
-    .sendFile(loginPath)
+    .json({
+     ikise: "vainqueur"
+    })
 }
+
 
 

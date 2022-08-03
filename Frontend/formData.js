@@ -64,3 +64,11 @@ function fetchLoginData(event) {
     fetchData()
 }
 
+
+async function fetchResponse() {
+    const data = await (await fetch('http://localhost:8080/loginUser', {
+        method: 'POST'
+    })).json()
+    console.log(data)
+    console.log('Reached Here?')
+}

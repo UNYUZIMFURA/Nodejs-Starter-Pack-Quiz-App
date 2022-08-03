@@ -5,7 +5,8 @@ const {
     createUser,
     login,
     loginUser,
-    getQuiz
+    getQuiz,
+    checkResponse
 } = require('../controllers/users')
 
 const router = express.Router()
@@ -35,5 +36,6 @@ router
 router
 .route('/quiz')
 .get(protect, getQuiz)
+
 
 module.exports = router
