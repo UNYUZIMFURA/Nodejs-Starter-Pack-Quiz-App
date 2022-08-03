@@ -7,11 +7,14 @@ const path = require('path')
 const users = require('./routes/users')
 dotenv.config({ path: './config/config.env' })
 const PORT = process.env.PORT
+const cookieParser = require('cookie-parser')
+const redirect = require('./middleware/redirect')
 
 connectDB()
 
 app.use(express.static('Frontend'))
 app.use(express.json())
+app.use(cookieParser())
 app.use('/', users)
 
 const server = app.listen(PORT, () => {

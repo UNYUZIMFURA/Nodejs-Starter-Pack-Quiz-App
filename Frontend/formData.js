@@ -4,6 +4,8 @@ function getCurrentData(event) {
     const emailTag = document.getElementById('email')
     const passwordTag = document.getElementById('password')
 
+
+
     let name = nameTag.value
     let email = emailTag.value
     let password = passwordTag.value
@@ -15,7 +17,7 @@ function getCurrentData(event) {
     }
 
     console.log(formData)
-  
+
     // Asynchronous way to fetch data
 
     async function fetchData() {
@@ -29,7 +31,36 @@ function getCurrentData(event) {
     }
 
     // Call the fetch Data function after collecting form data
-    fetchData()
-}    
 
+    fetchData()
+
+}
+
+function fetchLoginData(event) {
+    event.preventDefault()
+
+    const loginEmail = document.getElementById('loginEmail')
+
+    const loginPassword = document.getElementById('loginPassword')
+
+    let email = loginEmail.value
+    let password = loginPassword.value
+
+    let LoginData = {
+        email,
+        password
+    }
+
+    async function fetchData() {
+        await fetch('http://localhost:8080/loginUser', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify(LoginData),
+        })
+    }
+
+    fetchData()
+}
 

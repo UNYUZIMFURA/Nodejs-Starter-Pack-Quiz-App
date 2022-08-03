@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -24,5 +25,14 @@ const UserSchema = new mongoose.Schema({
         required: [true, 'Please add a password'],
     }
 })
+
+
+UserSchema.methods.getToken = function () {
+    return jwt.sign({ id: this._id },
+        process.env.SECRET_KEY,
+        {
+            expiresIn: process.env.JWT_EXPIRE
+        })
+}
 
 module.exports = mongoose.model('user', UserSchema)

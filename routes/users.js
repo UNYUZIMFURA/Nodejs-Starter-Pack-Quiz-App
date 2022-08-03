@@ -3,9 +3,14 @@ const {
     handleData,
     loadSignup,
     createUser,
+    login,
+    loginUser,
+    getQuiz
 } = require('../controllers/users')
 
 const router = express.Router()
+
+const { protect } = require('../middleware/auth')
 
 router
     .route('/')
@@ -18,5 +23,17 @@ router
 router
 .route('/data')
 .post(handleData)
+
+router
+.route('/login')
+.get(login)
+
+router
+.route('/loginUser')
+.post(loginUser)
+
+router
+.route('/quiz')
+.get(protect, getQuiz)
 
 module.exports = router
