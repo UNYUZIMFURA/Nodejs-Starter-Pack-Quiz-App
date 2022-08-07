@@ -21,6 +21,7 @@ function getCurrentData(event) {
     // Asynchronous way to fetch data
 
     async function fetchData() {
+        let errorDiv = document.getElementById('errorDiv')
         await fetch('http://localhost:8080/data', {
             headers: {
                 'Content-Type': 'application/json',
@@ -28,12 +29,20 @@ function getCurrentData(event) {
             method: 'POST',
             body: JSON.stringify(formData),
         })
+
+        const dataFetched = fetch('http://localhost:8080/data', {
+            method: 'POST'
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+
+        console.log(dataFetched)
+    errorDiv.textContent = dataFetched.message
     }
 
     // Call the fetch Data function after collecting form data
 
     fetchData()
-
 }
 
 function fetchLoginData(event) {
@@ -64,11 +73,11 @@ function fetchLoginData(event) {
     fetchData()
 }
 
-
-async function fetchResponse() {
+async function fetchLogin() {
+    let errorDiv = document.getElementById('errorDiv')
     const data = await (await fetch('http://localhost:8080/loginUser', {
         method: 'POST'
     })).json()
     console.log(data)
-    console.log('Reached Here?')
+    errorDiv.innerHTML = "wtf"
 }

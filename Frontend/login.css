@@ -13,6 +13,17 @@ body {
     align-items: center;
 }
 
+.all-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 55vh;
+}
+
+.errorDiv {
+    text-align: center;
+    color: rgb(223, 65, 65);
+}
 form {
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.137);

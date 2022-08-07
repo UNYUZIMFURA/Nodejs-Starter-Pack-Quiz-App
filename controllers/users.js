@@ -19,6 +19,11 @@ exports.getQuiz = (req, res) => {
 
 exports.handleData = async (req, res) => {
   const { name, email, password } = req.body
+  if(!email || !name || !password) {
+    res.json({
+      message: "Fill all the fields"
+    })
+  }
 
   const hash = await bcrypt.hash(password, 10)
 
@@ -28,6 +33,22 @@ exports.handleData = async (req, res) => {
     password: hash
   })
 
+
+  if(user) {
+    res.json({
+      message: 'User found'
+    })
+  }
+
+  const emailExists = await User.find(email)
+
+  if(emailExists) {
+    res.json({
+      message: 'Email already exists!'
+    })
+  }
+
+  
   sendTokenResponse(user, 200, res)
 
 }
@@ -39,6 +60,9 @@ exports.login = (req, res) => {
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body
   if (!email || !password) {
+    res.json({
+      message: "Fill all the fields"
+    })
     console.log('Fill all the fields')
   }
 
@@ -46,13 +70,23 @@ exports.loginUser = async (req, res) => {
     email
   })
 
+  if(user) {
+    console.log("User found")
+    res.json({
+      message: "User found"
+    })
+  }
+
   if (!user) {
     console.log('User not found')
+    res.json({
+      message: "User not found"
+    })
     return
   }
 
   const matchPasswords = await bcrypt.compare(password, user.password)
-
+console.log(matchPasswords)
   if (!matchPasswords) {
     console.log('Incorrect Password')
   }

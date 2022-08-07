@@ -15,15 +15,17 @@
 </head>
 
 <body>
+  <div class="all-holder">
   <form method="post" action="http://localhost:8080/login">
     <h2>Sign Up</h2>
     <input type="text" placeholder="Enter your names" name="name" id="name" />
     <input type="email" placeholder="Enter your email" name="email" id="email" />
     <input type="password" placeholder="Enter your password" name="password" id="password" />
-    <button type="submit" onclick="getCurrentData(event)"
+    <button type="submit" onclick="getCurrentData(event);"
     >Sign Up</button>
   </form>
-
+<h4 class="errorDiv" id="errorDiv"></h4>
+</div>
   <script src="formData.js"> </script>
 
 </body>
