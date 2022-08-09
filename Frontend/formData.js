@@ -1,3 +1,5 @@
+// Handle Signup Data Function 
+
 function getCurrentData(event) {
     event.preventDefault()
     const nameTag = document.getElementById('name')
@@ -15,6 +17,8 @@ function getCurrentData(event) {
         email,
         password
     }
+
+    // Submit Signup data and await the response
 
     async function fetchData() {
         const resData = await (await (fetch('http://localhost:8080/data', {
@@ -35,7 +39,7 @@ function getCurrentData(event) {
     fetchData()
 }
 
-
+// Handle Login Data Function 
 
 function fetchLoginData(event) {
     event.preventDefault()
@@ -53,6 +57,8 @@ function fetchLoginData(event) {
         email,
         password
     }
+
+    // Submit Login Data and await the response
 
     async function fetchData() {
         const resData = await (await (fetch('http://localhost:8080/loginUser', {
