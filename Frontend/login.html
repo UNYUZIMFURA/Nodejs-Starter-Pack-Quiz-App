@@ -19,7 +19,7 @@
   <form action="http://localhost:8080/quiz" method="post">
     <h2>Login</h2>
     <input type="email" placeholder="Enter your email" name="email" id="loginEmail" />
-    <input type="password" placeholder="Enter your password" name="password" id="loginPassword" />
+    <input type="password" placeholder="Enter your password" name="password" id="loginPassword" minlength="5"/>
     <button type="submit" onclick="fetchLoginData(event);">Login</button>
   </form>
   <h2 id="errorDiv" class="errorDiv"></h2>
