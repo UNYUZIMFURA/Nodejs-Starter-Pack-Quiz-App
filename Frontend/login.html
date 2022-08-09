@@ -15,13 +15,15 @@
 </head>
 
 <body>
+  <div class="login-holder">
   <form action="http://localhost:8080/quiz" method="post">
     <h2>Login</h2>
     <input type="email" placeholder="Enter your email" name="email" id="loginEmail" />
     <input type="password" placeholder="Enter your password" name="password" id="loginPassword" />
-    <button type="submit" onclick="fetchLoginData(event); fetchLogin()">Login</button>
+    <button type="submit" onclick="fetchLoginData(event);">Login</button>
   </form>
   <h2 id="errorDiv" class="errorDiv"></h2>
+  </div>
 </body>
 <script src="formData.js"> </script>
 
