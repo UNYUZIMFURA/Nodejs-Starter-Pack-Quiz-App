@@ -79,6 +79,7 @@ exports.loginUser = async (req, res) => {
   sendTokenResponse(user, 200, res)
 }
 
+// Sending a Token
 
 const sendTokenResponse = (user, statusCode, res) => {
   const token = user.getToken()
